@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  favicon: "favicon.ico"
+  site-url: "https://sharleenw.github.io"
+  search: FALSE
+  navbar:
+    left:
+      - text: "Home"
+        file: "index.qmd"
+      - about.qmd
+      - icon: github
+        href: https://github.com/sharleenw
+format:
+  html:
+    theme: minty
+    css: styles.css
+
+editor: visual
+
