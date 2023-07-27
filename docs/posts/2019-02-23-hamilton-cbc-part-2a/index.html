@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sharleen Weatherley">
+<meta name="dcterms.date" content="2019-02-23">
+<meta name="description" content="Further cleaning of the Hamilton Christmas Bird Count data.">
+
+<title>Hamilton Christmas Bird Count: Part 2a</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/sharleenw" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Hamilton Christmas Bird Count: Part 2a</h1>
+                  <div>
+        <div class="description">
+          Further cleaning of the Hamilton Christmas Bird Count data.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">data cleaning</div>
+                <div class="quarto-category">birding</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sharleen Weatherley </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 23, 2019</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="well alert alert-info" role="alert">
+<p>This is a series of five posts for this data:</p>
+<ul>
+<li><p><a href="../2019-01-07-hamilton-cbc-part-1/">Part 1</a>: data downloading and cleaning</p></li>
+<li><p><a href="../2019-02-23-hamilton-cbc-part-2a/">Part 2a</a>: more cleaning</p></li>
+<li><p><a href="../2019-02-24-hamilton-cbc-part-2b/">Part 2b</a>: visualizing</p></li>
+<li><p><a href="../2019-03-24-hamilton-cbc-part-3/">Part 3</a>: a Shiny app</p></li>
+<li><p><a href="../2019-05-26-hamilton-cbc-part-4/">Part 4</a>: a <code>gganimate</code> plot</p></li>
+</ul>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>While I was visualizing the data, I realized I still needed to do a bit more cleaning. So this is a short post outlining my steps to do so.</p>
+<p>To start, we’ll load all of the packages and the data:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20,868 × 6
+    year species        species_latin     how_many_counted total_hours
+   &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;                        &lt;int&gt;       &lt;dbl&gt;
+ 1  1921 "Snow Goose\r" Chen caerulescens                0           8
+ 2  1922 "Snow Goose\r" Chen caerulescens                0          NA
+ 3  1924 "Snow Goose\r" Chen caerulescens                0          NA
+ 4  1925 "Snow Goose\r" Chen caerulescens                0          NA
+ 5  1926 "Snow Goose\r" Chen caerulescens                0          NA
+ 6  1928 "Snow Goose\r" Chen caerulescens                0          NA
+ 7  1930 "Snow Goose\r" Chen caerulescens                0          NA
+ 8  1931 "Snow Goose\r" Chen caerulescens                0          NA
+ 9  1932 "Snow Goose\r" Chen caerulescens                0          NA
+10  1933 "Snow Goose\r" Chen caerulescens                0          NA
+# ℹ 20,858 more rows
+# ℹ 1 more variable: how_many_counted_by_hour &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="final-cleaning-touches" class="level1">
+<h1>Final cleaning touches</h1>
+<p>Particularly, I want to:</p>
+<ol type="1">
+<li><p>Remove <code>hybrid</code> birds</p></li>
+<li><p>Consolidate the names of some species that had variations in them</p></li>
+</ol>
+<p>Let’s see how many hybrid species we have and remove them:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_remove</span>(species, <span class="st">"</span><span class="sc">\r</span><span class="st">"</span>))  <span class="co"># Remove the trailing "\r"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(species, <span class="st">"hybrid"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  species                                   
+  &lt;chr&gt;                                     
+1 Snow x Canada Goose (hybrid)              
+2 American Black Duck x Mallard (hybrid)    
+3 Mallard x Northern Pintail (hybrid)       
+4 Herring x Glaucous Gull (hybrid)          
+5 Herring x Great Black-backed Gull (hybrid)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(species, <span class="st">"hybrid"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, onto cleaning the trickier stuff. Sometimes, species have sub-species names or groups that have different total counts. For example, the Juncos (where <code>total_counted</code> is the sum of the counts over all years for that species):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(species, <span class="st">"Junco"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  species                         species_latin                    total_counted
+  &lt;chr&gt;                           &lt;chr&gt;                                    &lt;int&gt;
+1 Dark-eyed Junco                 Junco hyemalis                           14426
+2 Dark-eyed Junco (Oregon)        Junco hyemalis [oreganus Group              39
+3 Dark-eyed Junco (Slate-colored) Junco hyemalis hyemalis/carolin…         46764
+4 Dark-eyed Junco (White-winged)  Junco hyemalis aikeni                        1</code></pre>
+</div>
+</div>
+<p>I just want there to be one Dark-eyed Junco species in this dataset, so I am going to consolidate these four sub-species into one species. (Even though people get way more excited about seeing the Oregon sub-species in Hamilton than the Slate-colored 😄.)</p>
+<p>The first step is to only keep the first two words of the <code>species_latin</code> variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species_latin =</span> <span class="fu">word</span>(species_latin, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also see who else is in this list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n_distinct</span>(species) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 3
+   species                         species_latin      total_counted
+   &lt;chr&gt;                           &lt;chr&gt;                      &lt;int&gt;
+ 1 American Kestrel                Falco sparverius            1520
+ 2 American Kestrel (Northern)     Falco sparverius               4
+ 3 Brant                           Branta bernicla                8
+ 4 Brant (Atlantic)                Branta bernicla                1
+ 5 Common Grackle                  Quiscalus quiscula           173
+ 6 Common Grackle (Purple)         Quiscalus quiscula            17
+ 7 Dark-eyed Junco                 Junco hyemalis             14426
+ 8 Dark-eyed Junco (Oregon)        Junco hyemalis                39
+ 9 Dark-eyed Junco (Slate-colored) Junco hyemalis             46764
+10 Dark-eyed Junco (White-winged)  Junco hyemalis                 1
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>The second step is to sum up the counts for each year across all of the sub-species so the counts are the same, and then filter to only keep the first instance of each <code>species</code> (which, when arranged alphabetically, is the shortest species name):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">how_many_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, species) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(species, <span class="st">"Junco"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  species         species_latin  total_counted
+  &lt;chr&gt;           &lt;chr&gt;                  &lt;int&gt;
+1 Dark-eyed Junco Junco hyemalis         61230</code></pre>
+</div>
+</div>
+<p>Perfect! No more sub-species. The last group of species to deal with is <code>species</code> where the name has either a <code>(</code> or a <code>/</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, species_latin) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(species, <span class="st">"</span><span class="sc">\\</span><span class="st">(|/"</span>))  <span class="co"># The "|" is an "or" within the regex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 3
+   species                                      species_latin      total_counted
+   &lt;chr&gt;                                        &lt;chr&gt;                      &lt;int&gt;
+ 1 Barn Owl (American)                          Tyto alba                      1
+ 2 Bullock's/Baltimore Oriole                   Icterus bullockii…             1
+ 3 Great Blue Heron (Blue form)                 Ardea herodias               362
+ 4 Greater/Lesser Scaup                         Aythya marila/aff…         26558
+ 5 Pacific/Winter Wren                          Troglodytes pacif…           498
+ 6 Palm Warbler (Western)                       Setophaga palmarum             1
+ 7 Rock Pigeon (Feral Pigeon)                   Columba livia              60114
+ 8 Spotted/Eastern Towhee (Rufous-sided Towhee) Pipilo maculatus/…            28
+ 9 Western/Eastern Meadowlark                   Sturnella neglect…            49
+10 Wilson's/Common Snipe                        Gallinago delicat…            13
+11 Yellow-rumped Warbler (Myrtle)               Setophaga coronata            65</code></pre>
+</div>
+</div>
+<p>I am going to make some executive decisions about what to do with these <code>species</code>:</p>
+<ol type="1">
+<li>Delete species guess: Greater/Lesser Scaup</li>
+<li>Assume super-rare species were in fact the more common species:
+<ul>
+<li>Bullock’s/Baltimore Oriole were Baltimore Orioles</li>
+<li>Western/Eastern Meadowlark were Eastern Meadowlarks</li>
+<li>Wilson’s/Common Snipe were Common Snipes</li>
+<li>Spotted/Eastern Towhee (Rufous-sided Towhee) were Eastern Towhees</li>
+<li>Pacific/Winter Wren were Winter Wrens</li>
+</ul></li>
+<li>Remove parentheses on the remaining species for neatness</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(species <span class="sc">==</span> <span class="st">"Greater/Lesser Scaup"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">"Bullock's/Baltimore Oriole"</span> <span class="sc">~</span> <span class="st">"Baltimore Oriole"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Western/Eastern Meadowlark"</span> <span class="sc">~</span> <span class="st">"Eastern Meadowlark"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Wilson's/Common Snipe"</span> <span class="sc">~</span> <span class="st">"Common Snipe"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Spotted/Eastern Towhee (Rufous-sided Towhee)"</span> <span class="sc">~</span> <span class="st">"Eastern Towhee"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Pacific/Winter Wren"</span> <span class="sc">~</span> <span class="st">"Winter Wren"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> species),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">species_latin =</span> <span class="fu">case_when</span>(species_latin <span class="sc">==</span> <span class="st">"Icterus bullockii/galbula"</span> <span class="sc">~</span> <span class="st">"Icterus galbula"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                             species_latin <span class="sc">==</span> <span class="st">"Sturnella neglecta/magna"</span> <span class="sc">~</span> <span class="st">"Sturnella magna"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                             species_latin <span class="sc">==</span> <span class="st">"Gallinago delicata/gallinago"</span> <span class="sc">~</span> <span class="st">"Gallinago gallinago"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                             species_latin <span class="sc">==</span> <span class="st">"Pipilo maculatus/erythrophthalmus"</span> <span class="sc">~</span> <span class="st">"Pipilo erythrophthalmus"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                             species_latin <span class="sc">==</span> <span class="st">"Troglodytes pacificus/hiemalis"</span> <span class="sc">~</span> <span class="st">"Troglodytes hiemalis"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> species_latin),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">species =</span> <span class="fu">case_when</span>(species <span class="sc">==</span> <span class="st">"Barn Owl (American)"</span> <span class="sc">~</span> <span class="st">"Barn Owl"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Great Blue Heron (Blue form)"</span> <span class="sc">~</span> <span class="st">"Great Blue Heron"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Palm Warbler (Western)"</span> <span class="sc">~</span> <span class="st">"Palm Warbler"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Rock Pigeon (Feral Pigeon)"</span> <span class="sc">~</span> <span class="st">"Rock Pigeon"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>                             species <span class="sc">==</span> <span class="st">"Yellow-rumped Warbler (Myrtle)"</span> <span class="sc">~</span> <span class="st">"Yellow-rumped Warbler"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> species))</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Consolidate the counts between the species whose names were just updated</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same step as was done in the earlier sub-species section</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, species) <span class="sc">%&gt;%</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">how_many_counted =</span> <span class="fu">sum</span>(how_many_counted)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, species) <span class="sc">%&gt;%</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, I am going to recalculate the <code>how_many_counted_by_hour</code> variable that depends on <code>how_many_counted</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">how_many_counted_by_hour =</span> <span class="fu">as.double</span>(how_many_counted) <span class="sc">/</span> total_hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="number-of-species-counted-each-year" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-species-counted-each-year">Number of species counted each year</h2>
+<p>In the course of creating a plot, I believe there was a error in the total hours recorded for 1982, where the total number of hours was only 64, but there was no drop in the number of species counted that year. I think it should have actually been 164 hours, because, in 1981, there were 167 hours, and in 1983, there were 168 hours. So, in the below chunk, I’ve <code>mutate</code>d 1982 to have 164 total hours.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutating total_hours and how_many_counted_by_hour that depends on it</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>hamilton_cbc <span class="ot">&lt;-</span> hamilton_cbc <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_hours =</span> <span class="fu">ifelse</span>(year <span class="sc">==</span> <span class="dv">1982</span>, <span class="dv">164</span>, total_hours),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">how_many_counted_by_hour =</span> <span class="fu">as.double</span>(how_many_counted) <span class="sc">/</span> total_hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you would like to download this final, cleaned dataset in <code>.rds</code> format, you can do so <a href="https://github.com/sharleenw/my_blog/blob/master/content/post/hamilton_cbc_part_3/hamilton_cbc_shiny/hamilton_cbc_output_part_2.rds">here</a>.</p>
+<p>We are now ready to visualize! Please look at the next post in this series for the visualizing!</p>
+<p>And thank you to the Christmas Bird Count! The Christmas Bird Count Data was provided by <a href="www.christmasbirdcount.org">National Audubon Society</a> and through the generous efforts of <a href="www.bsc-eoc.org">Bird Studies Canada</a> and countless volunteers across the western hemisphere.</p>
+<hr>
+</section>
+</section>
+<section id="session-info" class="level1">
+<h1>Session info</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.0 (2023-04-21 ucrt)
+ os       Windows 11 x64 (build 22000)
+ system   x86_64, mingw32
+ ui       RTerm
+ language (EN)
+ collate  English_Canada.utf8
+ ctype    English_Canada.utf8
+ tz       America/Vancouver
+ date     2023-07-27
+ pandoc   3.1.1 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version    date (UTC) lib source
+ assertthat    0.2.1      2019-03-21 [1] CRAN (R 4.3.1)
+ cachem        1.0.8      2023-05-01 [1] CRAN (R 4.3.0)
+ callr         3.7.3      2022-11-02 [1] CRAN (R 4.3.0)
+ cli           3.6.1      2023-03-23 [1] CRAN (R 4.3.0)
+ crayon        1.5.2      2022-09-29 [1] CRAN (R 4.3.0)
+ devtools    * 2.4.5      2022-10-11 [1] CRAN (R 4.3.1)
+ digest        0.6.31     2022-12-11 [1] CRAN (R 4.3.0)
+ dplyr       * 1.1.2      2023-04-20 [1] CRAN (R 4.3.0)
+ ellipsis      0.3.2      2021-04-29 [1] CRAN (R 4.3.0)
+ emo         * 0.0.0.9000 2023-07-22 [1] Github (hadley/emo@3f03b11)
+ evaluate      0.20       2023-01-17 [1] CRAN (R 4.3.0)
+ fansi         1.0.4      2023-01-22 [1] CRAN (R 4.3.0)
+ fastmap       1.1.1      2023-02-24 [1] CRAN (R 4.3.0)
+ fs            1.6.2      2023-04-25 [1] CRAN (R 4.3.0)
+ generics      0.1.3      2022-07-05 [1] CRAN (R 4.3.0)
+ glue          1.6.2      2022-02-24 [1] CRAN (R 4.3.0)
+ here        * 1.0.1      2020-12-13 [1] CRAN (R 4.3.0)
+ hms           1.1.3      2023-03-21 [1] CRAN (R 4.3.0)
+ htmltools     0.5.5      2023-03-23 [1] CRAN (R 4.3.0)
+ htmlwidgets   1.6.2      2023-03-17 [1] CRAN (R 4.3.0)
+ httpuv        1.6.10     2023-05-08 [1] CRAN (R 4.3.0)
+ jsonlite      1.8.4      2022-12-06 [1] CRAN (R 4.3.0)
+ knitr         1.42       2023-01-25 [1] CRAN (R 4.3.0)
+ later         1.3.1      2023-05-02 [1] CRAN (R 4.3.0)
+ lifecycle     1.0.3      2022-10-07 [1] CRAN (R 4.3.0)
+ lubridate     1.9.2      2023-02-10 [1] CRAN (R 4.3.0)
+ magrittr      2.0.3      2022-03-30 [1] CRAN (R 4.3.0)
+ memoise       2.0.1      2021-11-26 [1] CRAN (R 4.3.0)
+ mime          0.12       2021-09-28 [1] CRAN (R 4.3.0)
+ miniUI        0.1.1.1    2018-05-18 [1] CRAN (R 4.3.0)
+ pillar        1.9.0      2023-03-22 [1] CRAN (R 4.3.0)
+ pkgbuild      1.4.0      2022-11-27 [1] CRAN (R 4.3.0)
+ pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.3.0)
+ pkgload       1.3.2      2022-11-16 [1] CRAN (R 4.3.0)
+ prettyunits   1.1.1      2020-01-24 [1] CRAN (R 4.3.0)
+ processx      3.8.1      2023-04-18 [1] CRAN (R 4.3.0)
+ profvis       0.3.8      2023-05-02 [1] CRAN (R 4.3.0)
+ promises      1.2.0.1    2021-02-11 [1] CRAN (R 4.3.0)
+ ps            1.7.5      2023-04-18 [1] CRAN (R 4.3.0)
+ purrr         1.0.1      2023-01-10 [1] CRAN (R 4.3.0)
+ R6            2.5.1      2021-08-19 [1] CRAN (R 4.3.0)
+ Rcpp          1.0.10     2023-01-22 [1] CRAN (R 4.3.0)
+ readr       * 2.1.4      2023-02-10 [1] CRAN (R 4.3.0)
+ remotes       2.4.2      2021-11-30 [1] CRAN (R 4.3.0)
+ rlang         1.1.1      2023-04-28 [1] CRAN (R 4.3.0)
+ rmarkdown     2.21       2023-03-26 [1] CRAN (R 4.3.0)
+ rprojroot     2.0.3      2022-04-02 [1] CRAN (R 4.3.0)
+ rstudioapi    0.14       2022-08-22 [1] CRAN (R 4.3.0)
+ sessioninfo   1.2.2      2021-12-06 [1] CRAN (R 4.3.0)
+ shiny         1.7.4      2022-12-15 [1] CRAN (R 4.3.0)
+ stringi       1.7.12     2023-01-11 [1] CRAN (R 4.3.0)
+ stringr     * 1.5.0      2022-12-02 [1] CRAN (R 4.3.0)
+ tibble        3.2.1      2023-03-20 [1] CRAN (R 4.3.0)
+ tidyselect    1.2.0      2022-10-10 [1] CRAN (R 4.3.0)
+ timechange    0.2.0      2023-01-11 [1] CRAN (R 4.3.0)
+ tzdb          0.3.0      2022-03-28 [1] CRAN (R 4.3.0)
+ urlchecker    1.0.1      2021-11-30 [1] CRAN (R 4.3.0)
+ usethis     * 2.2.2      2023-07-06 [1] CRAN (R 4.3.1)
+ utf8          1.2.3      2023-01-31 [1] CRAN (R 4.3.0)
+ vctrs         0.6.2      2023-04-19 [1] CRAN (R 4.3.0)
+ xfun          0.39       2023-04-20 [1] CRAN (R 4.3.0)
+ xtable        1.8-4      2019-04-21 [1] CRAN (R 4.3.0)
+ yaml          2.3.7      2023-01-23 [1] CRAN (R 4.3.0)
+
+ [1] C:/Users/sharl/AppData/Local/R/win-library/4.3
+ [2] C:/Program Files/R/R-4.3.0/library
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
