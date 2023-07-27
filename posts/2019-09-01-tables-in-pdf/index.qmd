@@ -60,7 +60,9 @@ So this year, while writing the report using R, my workflow went like this:
 -   Commit any changes, because the report is now version-controlled thanks to Jenny Bryan's [Happy Git and GitHub for the useR](https://happygitwithr.com/)! `r emo::ji("heart_eyes")`
 -   Send the PDF to be published on the website
 
-This is much more reproducible and will make the creation of next year's report so much faster! Click here to see what this year's report looked like: <http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf>
+This is much more reproducible and will make the creation of next year's report so much faster!
+
+`r emo::ji("exclamation")`**Click here to see what this year's reproducible report looked like: <http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf>**`r emo::ji("exclamation")`
 
 # How did I create the tables in PDF?
 
@@ -85,7 +87,7 @@ My goal is to make a table that shows:
 -   a "Total" row for Canada that shows the total number of cities (this number should equal 100)
 -   the population of Canada in 2011 and 2016 (including the populations of the top 100 cities only)
 
-I used the website [Convert Wiki Tables to CSV](https://wikitable2csv.ggor.de/) to turn the table on the Wikipedia page into a CSV file. Click [here](https://github.com/sharleenw/my_blog/blob/master/content/post/tables_in_pdf/wiki_data.csv) to see the full raw file on my Github page.
+I used the website [Convert Wiki Tables to CSV](https://wikitable2csv.ggor.de/) to turn the table on the Wikipedia page into a CSV file. Click [here](https://github.com/sharleenw/sharleenw.github.io/blob/main/posts/2019-09-01-tables-in-pdf/wiki_data.csv) to see the full raw file on my Github page.
 
 ## Data import
 
@@ -188,7 +190,7 @@ The secret is...
 
 The document [Create Awesome LaTeX Table with knitr::kable and kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf), written by Hao Zhu! It's got everything you need in order to make fantastic tables in PDF using RMarkdown.
 
-To see the final PDF of the below `.Rmd` file, click `r emo::ji("sparkles")`[here](https://nbviewer.jupyter.org/github/sharleenw/my_blog/blob/master/content/post/tables_in_pdf/largest_canadian_cities.pdf)`r emo::ji("sparkles")`!
+`r emo::ji("exclamation")`**To see the final PDF of the below `.Rmd` file, click [here](https://github.com/sharleenw/sharleenw.github.io/blob/main/posts/2019-09-01-tables-in-pdf/largest_canadian_cities.pdf)`r emo::ji("exclamation")`
 
 ```{r, eval=FALSE}
 ---

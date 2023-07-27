@@ -382,7 +382,7 @@ hamilton_cbc %>%
 
 I also plotted the Northern Cardinal numbers since 1921. Cardinals used to only be in Canada occasionally at Point Pelee (Canada's most southern point), where the first recorded breeding happened in 1901. According to @pp_birds, the Point Pelee locals used to call these unusually-coloured birds "war birds"! `r emo::ji("bird")`
 
-Now they are quite common in the Hamilton area through the winter, with @hsa_birds giving the reasons of climate warming (causing less snow depth), increasing edge habitats where they like to live (due to deforestation), and more bird-feeders. `r emo::ji("chestnut")``r emo::ji("sunflower")`
+Now they are quite common in the Hamilton area through the winter, with @hsa_birds giving the reasons of climate warming (causing less snow depth), increasing edge habitats where they like to live (due to deforestation), and more bird-feeders. `r emo::ji("chestnut")` `r emo::ji("sunflower")`
 
 This is another bird I thought had always been common to the Hamilton area!
 

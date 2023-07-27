@@ -48,11 +48,11 @@ This is a series of five posts for this data:
 
 This post is to demonstrate a Shiny app I made so that people could look through the data themselves!
 
-I was able to make this whole app very easily thanks to the wonderful tutorial found [here](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)!
+I was able to make this whole app very easily thanks to the wonderful tutorial found [here](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)!
 
 # Data visualizing using a Shiny app
 
-Here is the link to my Shiny app: <https://sharleenw.shinyapps.io/hamilton_cbc_shiny/>
+`r emo::ji("exclamation")`**Here is the link to my Shiny app: <https://sharleenw.shinyapps.io/hamilton_cbc_shiny/>**`r emo::ji("exclamation")`
 
 And here is the code I used to make the app:
 

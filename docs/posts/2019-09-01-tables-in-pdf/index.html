@@ -204,7 +204,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Commit any changes, because the report is now version-controlled thanks to Jenny Bryan’s <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>! 😍</li>
 <li>Send the PDF to be published on the website</li>
 </ul>
-<p>This is much more reproducible and will make the creation of next year’s report so much faster! Click here to see what this year’s report looked like: <a href="http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf" class="uri">http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf</a></p>
+<p>This is much more reproducible and will make the creation of next year’s report so much faster!</p>
+<p>❗<strong>Click here to see what this year’s reproducible report looked like: <a href="http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf" class="uri">http://ccrnr.ca/assets/2018-ccrnr-nclex-canadian-and-international-results-report-en.pdf</a></strong>❗</p>
 </section>
 <section id="how-did-i-create-the-tables-in-pdf" class="level1">
 <h1>How did I create the tables in PDF?</h1>
@@ -227,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>a “Total” row for Canada that shows the total number of cities (this number should equal 100)</li>
 <li>the population of Canada in 2011 and 2016 (including the populations of the top 100 cities only)</li>
 </ul>
-<p>I used the website <a href="https://wikitable2csv.ggor.de/">Convert Wiki Tables to CSV</a> to turn the table on the Wikipedia page into a CSV file. Click <a href="https://github.com/sharleenw/my_blog/blob/master/content/post/tables_in_pdf/wiki_data.csv">here</a> to see the full raw file on my Github page.</p>
+<p>I used the website <a href="https://wikitable2csv.ggor.de/">Convert Wiki Tables to CSV</a> to turn the table on the Wikipedia page into a CSV file. Click <a href="https://github.com/sharleenw/sharleenw.github.io/blob/main/posts/2019-09-01-tables-in-pdf/wiki_data.csv">here</a> to see the full raw file on my Github page.</p>
 <section id="data-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-import">Data import</h2>
 <p>Here is the R code where I import the CSV file I created (<code>"wiki_data.csv"</code>). Underneath the code, I’ve displayed what the raw data file looks like.</p>
@@ -361,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So, what’s the real secret to creating tables in PDF from RMarkdown?</p>
 <p>The secret is…</p>
 <p>The document <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">Create Awesome LaTeX Table with knitr::kable and kableExtra</a>, written by Hao Zhu! It’s got everything you need in order to make fantastic tables in PDF using RMarkdown.</p>
-<p>To see the final PDF of the below <code>.Rmd</code> file, click ✨<a href="https://nbviewer.jupyter.org/github/sharleenw/my_blog/blob/master/content/post/tables_in_pdf/largest_canadian_cities.pdf">here</a>✨!</p>
+<p>❗**To see the final PDF of the below <code>.Rmd</code> file, click <a href="https://github.com/sharleenw/sharleenw.github.io/blob/main/posts/2019-09-01-tables-in-pdf/largest_canadian_cities.pdf">here</a>❗</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">'The top 100 cities in Canada'</span></span>

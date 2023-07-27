@@ -219,7 +219,7 @@ hamilton_cbc <- hamilton_cbc %>%
 
 ```
 
-If you would like to download this final, cleaned dataset in `.rds` format, you can do so [here](https://github.com/sharleenw/my_blog/blob/master/content/post/hamilton_cbc_part_3/hamilton_cbc_shiny/hamilton_cbc_output_part_2.rds).
+If you would like to download this final, cleaned dataset in `.rds` format, you can do so [here](https://github.com/sharleenw/sharleenw.github.io/blob/main/posts/2019-03-24-hamilton-cbc-part-3/hamilton_cbc_shiny/hamilton_cbc_output_part_2.rds).
 
 We are now ready to visualize! Please look at the next post in this series for the visualizing!
 

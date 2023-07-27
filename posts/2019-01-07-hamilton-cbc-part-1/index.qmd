@@ -57,7 +57,7 @@ Specifically, I've noticed birders will say things like, "the House Sparrows are
 
 To access the data, I went on the [Bird Studies Canada](https://www.birdscanada.org/index.jsp) website, clicked on Citizen Science, then Christmas Bird Count, then CBC Audubon Database, and then Historical Results by Count. I downloaded all years of data that existed for the Hamilton count.
 
-If you would like to directly access the csv file that I used from my Github page, [here](https://raw.githubusercontent.com/sharleenw/my_blog/master/content/post/hamilton_cbc_part_1/hamilton-cbc-all-years-csv.csv) it is!
+If you would like to directly access the csv file that I used from my Github page, [here](https://raw.githubusercontent.com/sharleenw/sharleenw.github.io/main/posts/2019-01-07-hamilton-cbc-part-1/hamilton-cbc-all-years-csv.csv) it is!
 
 # Data import
 

@@ -26,7 +26,7 @@ library(here)
 ```
 
 ::: {.well .alert .alert-danger .text-center role="alert"}
-  **Update (2023):** My blog has broken again a couple times since writing this post, and so I've completely redone it from scratch again, this time in Quarto! I highly recommend using Quarto now instead. I have left the below post in case it helps anyone.
+  **Update (2023):** My blog has broken a couple times since writing this post about Blogdown, Hugo, and Netlify, and so I've redone my blog again, this time in [Quarto](https://quarto.org/docs/websites/website-blog.html) and using Github Pages! I highly recommend using [Quarto and Github Pages](https://quarto.org/docs/publishing/github-pages.html) now. However, I have left the below post in case it helps anyone.
 :::
 
 # Background
