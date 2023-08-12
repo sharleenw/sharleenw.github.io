@@ -7,7 +7,7 @@ about:
 
 My name is Sharleen (she/her) and I currently live on the lands of the Snuneymuxw and Snaw-naw-as First Nations, who have been caring for the land, water, and air since time immemorial.
 
-I am a Data Scientist who uses R/RStudio, R Markdown/Quarto/LaTeX, git, SQL, and Shiny to create data visualizations, analyses, R packages, and reports.
+I am a Data Scientist who uses R/RStudio, R Markdown/LaTeX, git, SQL, and Shiny to create data visualizations, analyses, R packages, and reports.
 
 When not programming, I like to bird, hike, climb, cook, or practice handstands.
 
@@ -15,7 +15,7 @@ When not programming, I like to bird, hike, climb, cook, or practice handstands.
 
 In 2015, I graduated with an M.Sc. in Statistics from McMaster University.
 
-In 2011, I graduated with a B.Eng. in Chemical Engineering and Bioengineering from McMaster University.
+In 2011, I graduated with a B.Eng.Bio. in Chemical Engineering and Bioengineering from McMaster University.
 
 ## Contact me
 
