@@ -11,6 +11,8 @@ website:
       - text: "Home"
         file: "index.qmd"
       - about.qmd
+      - text: "Resume"
+        file: "sharleen_weatherley_resume.pdf"
       - icon: github
         href: https://github.com/sharleenw
 format:
