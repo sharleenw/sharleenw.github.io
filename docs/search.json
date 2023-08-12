@@ -60,14 +60,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "My name is Sharleen (she/her) and I currently live on the lands of the Snuneymuxw and Snaw-naw-as First Nations, who have been caring for the land, water, and air since time immemorial.\nI am a Data Scientist who uses R/RStudio, R Markdown/Quarto/LaTeX, git, SQL, and Shiny to create data visualizations, analyses, R packages, and reports.\nWhen not programming, I like to bird, hike, climb, cook, or practice handstands."
+    "text": "My name is Sharleen (she/her) and I currently live on the lands of the Snuneymuxw and Snaw-naw-as First Nations, who have been caring for the land, water, and air since time immemorial.\nI am a Data Scientist who uses R/RStudio, R Markdown/LaTeX, git, SQL, and Shiny to create data visualizations, analyses, R packages, and reports.\nWhen not programming, I like to bird, hike, climb, cook, or practice handstands."
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "About",
     "section": "Education",
-    "text": "Education\nIn 2015, I graduated with an M.Sc. in Statistics from McMaster University.\nIn 2011, I graduated with a B.Eng. in Chemical Engineering and Bioengineering from McMaster University."
+    "text": "Education\nIn 2015, I graduated with an M.Sc. in Statistics from McMaster University.\nIn 2011, I graduated with a B.Eng.Bio. in Chemical Engineering and Bioengineering from McMaster University."
   },
   {
     "objectID": "about.html#contact-me",
