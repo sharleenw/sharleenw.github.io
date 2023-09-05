@@ -7,7 +7,7 @@ about:
 
 My name is Sharleen (she/her) and I currently live on the lands of the Snuneymuxw and Snaw-naw-as First Nations, who have been caring for the land, water, and air since time immemorial.
 
-I am a Data Scientist who uses R/RStudio, R Markdown/LaTeX, git, SQL, and Shiny to create data visualizations, analyses, R packages, and reports.
+I am a Data Scientist who uses SQL, R, R Markdown/Quarto, LaTeX, and git to create data analyses, reports, visualizations, and R packages.
 
 When not programming, I like to bird, hike, climb, cook, or practice handstands.
 
