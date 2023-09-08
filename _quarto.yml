@@ -17,6 +17,8 @@ website:
         href: https://github.com/sharleenw
       - icon: mastodon
         href: https://fosstodon.org/@sharleen
+      - icon: linkedin
+        href: https://www.linkedin.com/in/sharleenw
 format:
   html:
     theme: minty
