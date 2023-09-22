@@ -1,3 +1,0 @@
-blogdown::html_page:
-  highlight: tango
-  toc: yes
