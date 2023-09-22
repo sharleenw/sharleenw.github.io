@@ -12,7 +12,6 @@ execute:
   cache: true
 ---
 
-
 ```{r setup}
 #| output: false
 #| echo: false
@@ -24,11 +23,13 @@ library(here)
 
 ```
 
+# Overview
+
+Given the Global Human Day data from TidyTuesday, I will visualize what the average days look like for the two most different countries.
 
 # Setup
 
 First I will call the necessary packages and read in the data, found at the [`tidytuesday` Github repository](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-09-12/readme.md).
-
 
 ```{r}
 #| output: false
@@ -52,7 +53,6 @@ country_regions <- readr::read_csv('https://raw.githubusercontent.com/rfordatasc
 theme_set(theme_minimal())
 
 ```
-
 
 # Initial thoughts
 
@@ -109,7 +109,6 @@ all_countries |>
 
 ```
 
-
 # Add an hour variable for the `category`
 
 The `hours_per_day_combined` variable goes with the `subcategory` variable. I am going to create an hour variable for the `category` variable.
@@ -128,7 +127,6 @@ all_countries |>
   kable()
 
 ```
-
 
 # Visualize the two most different countries
 
@@ -159,7 +157,6 @@ country_pair_diff |>
   kable()
 
 ```
-
 
 Now I can find the two most different countries. They will have the largest `total_diff_country_pair`.
 
@@ -200,7 +197,6 @@ all_countries |>
 ```
 
 It looks like the DRC spends more time on `Deliberate neural restructuring`, which includes activities like religious practice and schooling and research, whereas Germany spends more time on `Experience oriented` activities, like active recreation, interactive, social, passive, and meals.
-
 
 <hr/>
 
