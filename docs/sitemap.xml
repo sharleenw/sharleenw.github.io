@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sharleenw.github.io/about.html</loc>
+    <lastmod>2023-09-23T01:57:00.793Z</lastmod>
+  </url>
+  <url>
     <loc>https://sharleenw.github.io/index.html</loc>
-    <lastmod>2023-09-22T22:22:04.822Z</lastmod>
+    <lastmod>2023-09-23T01:56:54.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2020-09-02-how-to-remake-a-blogdown-blog-from-scratch/index.html</loc>
+    <lastmod>2023-09-23T01:56:45.742Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-05-26-hamilton-cbc-part-4/index.html</loc>
+    <lastmod>2023-09-23T01:56:39.795Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-02-24-hamilton-cbc-part-2b/index.html</loc>
+    <lastmod>2023-09-23T01:56:34.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-01-07-hamilton-cbc-part-1/index.html</loc>
+    <lastmod>2023-09-23T01:56:27.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-02-23-hamilton-cbc-part-2a/index.html</loc>
+    <lastmod>2023-09-23T01:56:30.773Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-03-24-hamilton-cbc-part-3/index.html</loc>
+    <lastmod>2023-09-23T01:56:37.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sharleenw.github.io/posts/2019-09-01-tables-in-pdf/index.html</loc>
+    <lastmod>2023-09-23T01:56:42.926Z</lastmod>
   </url>
   <url>
     <loc>https://sharleenw.github.io/posts/2023-09-21-global-human-day/index.html</loc>
-    <lastmod>2023-09-22T22:22:01.596Z</lastmod>
+    <lastmod>2023-09-23T01:56:50.577Z</lastmod>
   </url>
 </urlset>
